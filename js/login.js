@@ -46,8 +46,47 @@ $(function () {
         $(navlist[6]).mouseleave(function () {
             $(this).children(".htNav").css("display", "none");
         })
-
-
     }
+
+
+
+
+
+
+
+
+
+    /*------------登录选项------------*/
+
+    $("#loginList2").click(function () {
+        $("#FORM2").css("display","block");
+        $("#FORM1").css("display","none");
+        $(this).css("border-bottom","3px solid #ff6342");
+        $("#loginList1").css("border-bottom","3px solid #999999");
+        $(this).css("color","black");
+        $("#loginList1").css("color"," #999999");
+    });
+    $("#loginList1").click(function () {
+        $("#FORM2").css("display","none");
+        $("#FORM1").css("display","block");
+        $(this).css("border-bottom","3px solid #ff6342");
+        $("#loginList2").css("border-bottom","3px solid #999999");
+        $(this).css("color","black");
+        $("#loginList2").css("color"," #999999");
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  });
 

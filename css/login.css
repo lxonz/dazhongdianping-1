@@ -116,7 +116,7 @@ opacity:1;filter(alpha=80)
 #loginBox>#phoneLogin{
   width:289px;
   height: 345px;
-  background: paleturquoise;
+  background: #fff;
   position: absolute;
   top: 88px;
   right: 81px;
@@ -151,7 +151,11 @@ opacity:1;filter(alpha=80)
   border-bottom: 2px solid #efefef;
   color: #999999;
 }
-#phoneLogin>form>select{
+/*------------------#FORM1---------*/
+#phoneLogin>#FORM1{
+  /*display: none;*/
+}
+#phoneLogin>#FORM1>select{
   width: 117px;
   height: 30px;
   overflow-y: scroll;
@@ -159,8 +163,9 @@ opacity:1;filter(alpha=80)
   margin-left: 19px;
   margin-top: 23px;
   float: left;
+  /*display: none;*/
 }
-#phoneLogin>form>#phone{
+#phoneLogin>#FORM1>#phone{
   float: right;
   width: 117px;
   height: 30px;
@@ -169,47 +174,136 @@ opacity:1;filter(alpha=80)
   margin-top: 23px;
   padding-left: 8px;
 }
-#phoneLogin>form>#DM{
+#phoneLogin>#FORM1>#DM{
   width: 145px;
   height: 29px;
   margin-left: 19px;
   margin-top: 15px;
   padding-left: 5px;
 }
-#phoneLogin>form>#DMbn{
+#phoneLogin>#FORM1>#DMbn{
   width: 88px;
   height: 32px;
 }
-#phoneLogin>form>#check{
+#phoneLogin>#FORM1>#check{
   width: 13px;
   height: 13px;
   margin-top: 17px;
   margin-left: 19px;
   margin-right: 7px;
 }
-#phoneLogin>form>#phla{
+#phoneLogin>#FORM1>#phla{
   font-size: 14px;
   color: #666666;
 }
-#phoneLogin>form>#loginBN{
+#phoneLogin>#FORM1>#loginBN{
   width: 246px;
   height: 34px;
-  background: #ff6342;
+  background: #ff6633;
   margin-left: 19px;
   margin-top: 14px;
   border: none;
 }
+#phoneLogin>#FORM1>#Solid{
+    border-bottom: 1px dashed #cccccc;
+    margin-top: 30px;
+  margin-left: 19px;
+  width: 246px;
+}
+#phoneLogin>#tubiao{
+  margin-left: 19px;
+  margin-top: 18px;
+}
+#phoneLogin>#tubiao>li{
+  float: left;
+  margin-right: 15px;
+}
+#phoneLogin>#tubiao>li:nth-child(1){
+  font-size: 30px;
+  color: #35bafa;
+}
+#phoneLogin>#tubiao>li:nth-child(2){
+  font-size: 25px;
+  color: #3ad043;
+  margin-top: 3px;
+}
+#phoneLogin>#tubiao>li:nth-child(3){
+  font-size: 25px;
+  color: #ff7c6d;
+  margin-top: 3px;
+}
+#phoneLogin>#tubiao>li:nth-child(4){
+  font-size: 16px;
+  color: #ff7c6d;
+  float: right;
+  margin-right: 20px;
+}
 
 
 
-
-
-
-
-
-
-
-
+/*--------#FORM2---------*/
+#phoneLogin>#FORM2{
+  display: none
+}
+#phoneLogin>#FORM2>select{
+  width: 117px;
+  height: 30px;
+  overflow-y: scroll;
+  border: 1px solid #cccccc;
+  margin-left: 19px;
+  margin-top: 23px;
+  float: left;
+}
+#phoneLogin>#FORM2>#phone2{
+  float: right;
+  width: 117px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  margin-right: 19px;
+  margin-top: 23px;
+  padding-left: 8px;
+}
+#phoneLogin>#FORM2>#DM2{
+  width: 240px;
+  height: 29px;
+  margin-left: 19px;
+  margin-top: 15px;
+  padding-left: 5px;
+}
+#phoneLogin>#FORM2>#DMbn2{
+  width: 88px;
+  height: 32px;
+}
+#phoneLogin>#FORM2>#check{
+  width: 13px;
+  height: 13px;
+  margin-top: 17px;
+  margin-left: 19px;
+  margin-right: 7px;
+}
+#phoneLogin>#FORM2>#phla2{
+  font-size: 14px;
+  color: #666666;
+}
+#phoneLogin>#FORM2>#loginBN2{
+  width: 246px;
+  height: 34px;
+  background: #ff6633;
+  margin-left: 19px;
+  margin-top: 14px;
+  border: none;
+}
+#phoneLogin>#FORM2>#Solid2{
+  border-bottom: 1px dashed #cccccc;
+  margin-top: 30px;
+  margin-left: 19px;
+  width: 246px;
+}
+#phoneLogin>#FORM2>a{
+  font-size: 14px;
+  color: #666666;
+  margin-left: 100px;
+}
 
 
 
