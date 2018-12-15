@@ -178,35 +178,92 @@ for(var i=0;i<navlist.length;i++){
     //     }
     // }
     /////////////图片滚动
-    // var scrollIndex=0;
-    // var Timer=null;
-    // function scroll_f(){
-    //     clearInterval(Timer);
-    //     var oul=$("#lunbo");
-    //
-    //     var oli=oul.children("li");
-    //     var h=oli.height();
-    //     var index=0;
-    //
-    //     oul.css("height",h*oli.length*2);
-    //     oul.html(oul.html()+oul.html());
-    //     function run()
-    //     {
-    //         if(scrollIndex>=oli.length){
-    //             oul.css({top:0});
-    //             scrollIndex=1;
-    //             oul.animate({top:-scrollIndex*h},200);
+    // function Banner(){};
+    // $.extend(Banner.prototype,{
+    //     init:function(options){
+    //         this.slider_item=$(options.slider_item);
+    //         this.sk_left=$(options.sk_top);
+    //         this.sk_right=$(options.sk_bottom);
+    //         this.list_btn=$(options.list_btn);
+    //         this.nowIndex=0;
+    //         this.list_wrap=this.slider_item.parent();
+    //         //console.log(this.list_wrap)
+    //         this.focus_wraper=this.list_wrap.parent();
+    //         //console.log(this.focus_wraper)
+    //         this.slider_num=this.slider_item.length;
+    //         //console.log(this.slider_num)
+    //         if(this.sk_top==0&&this.sk_bottom==0&&this.list_btn==0){
+    //             this.autoPlay();
+    //         }else{
+    //             this.bindEvent();
     //         }
-    //         else{
-    //             scrollIndex++;
-    //             oul.animate({top:-scrollIndex*h},200);
+    //         if(options.autoPlay){
+    //             this.autoPlay();
     //         }
+    //     },
+    //     bindEvent:function(){
+    //         this.sk_left.click($.proxy(this.prev,this));
+    //         this.sk_right.click($.proxy(this.next,this));
+    //         this.list_btn.mouseover($.proxy(this.toIndex,this));
+    //     },
+    //     next:function(){
+    //         if(this.nowIndex==this.slider_num-1){
+    //             this.list_wrap.css({
+    //                 top:0
+    //             })
+    //             this.nowIndex=1;
+    //         }else{
+    //             this.nowIndex++;
+    //         }
+    //         this.animate()
+    //     },
+    //     prev:function(){
+    //         if(this.nowIndex==0){
+    //             this.list_wrap.css({
+    //                 top:-(this.slider_num-1)*38
+    //             })
+    //             this.nowIndex=this.slider_num-2
+    //         }else{
+    //             this.nowIndex--;
+    //         }
+    //         this.animate()
+    //     },
+    //     toIndex:function(event){
+    //         var target=event.target;
+    //         this.nowIndex=$(target).index();
+    //         this.animate()
+    //     },
+    //     autoPlay:function(){
+    //         this.focus_wraper.mouseenter(function(){
+    //             clearInterval(this.banner_timer)
+    //         }.bind(this))
+    //         this.focus_wraper.mouseleave(function(){
+    //             this.banner_timer=setInterval(function(){
+    //                 this.next()
+    //             }.bind(this),2000)
+    //         }.bind(this)).trigger("mouseleave");
+    //     },
+    //     animate:function(){
+    //         this.list_wrap.stop().animate({
+    //             top:-this.nowIndex*38
+    //         })
+    //         this.list_btn.removeClass("active");
+    //         var index;
+    //         if(this.nowIndex==this.slider_num-1){
+    //             index=0;
+    //         }else{
+    //             index=this.nowIndex;
+    //         }
+    //         this.list_btn.eq(index).addClass("active");
     //     }
-    //     Timer=setInterval(run,1500);
-    // }
-    // $(function(){
-    //     scroll_f();
     // })
+    // var fbanner=new Banner();
+    // fbanner.init({
+    //     slider_item:" #lubbo_box ul",
+    //     autoPlay:true
+    // });
+
+
 /*
 * -------------cate
 *
@@ -310,9 +367,6 @@ for(var i=0;i<navlist.length;i++){
     },function(msg){
         alert(msg)
     })
-
-
-
 /*----------learning-----------*/
     var learningppo = promiseAjax("../mock/learning.json");
     learningppo.then(function(msg){
@@ -344,40 +398,50 @@ for(var i=0;i<navlist.length;i++){
         }
     },function(msg){
         alert(msg)
+    });
+
+
+/*----------leftNAV----------*/
+    var leftNav = document.getElementById("leftNav");
+    window.onscroll = function () {
+        var top = document.body.scrollTop || document.documentElement.scrollTop;
+        console.log(top);
+        if(top > 680){
+            leftNav.style.display = "block";
+        }else {
+            leftNav.style.display = "none"
+        }
+        if(top > 680 && top < 1200 ){
+            $("#leftNav1").css("background","#ff6342")
+        }else {
+            $("#leftNav1").css("background","#7b7171")
+        }
+
+        if(top > 1200 && top < 1754 ){
+            $("#leftNav2").css("background","#ff6342")
+        }else {
+            $("#leftNav2").css("background","#7b7171")
+        }
+
+        if(top >= 1749){
+            $("#leftNav5").css("background","#ff6342")
+        }else {
+            $("#leftNav5").css("background","#7b7171")
+        }
+    }
+
+
+
+/*---------返回顶部-------*/
+    $("#backToTop").click(function(){
+        // document.documentElement.scrollTop || document.body.scrollTop
+        $("html,body").animate({
+            scrollTop : 0
+        },1000)
     })
+    /*-----------搜索框-------*/
+    $("#btn").click(function () {
+        window.location.href = "https://www.baidu.com";
+    })
+ });
 
-
-
-/*----------搜索框----------*/
-
-    var search = document.getElementById("search");
-    var box = document.getElementById("searchUl");
-    search.onkeyup = function () {
-        var txt = this.value;
-        console.log(txt)
-        var oScript = document.createElement("script");
-        document.body.appendChild(oScript);
-        oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+txt+"&cb=fx";
-    };
-    function fx(msg){
-        var arr = msg;
-        var str = "";
-        for(var i = 0; i < arr.length; i++){
-            str += `<li>${arr[i]}</li>`;
-        }
-        box.innerHTML = str;
-    }
-    box.onclick = function (e) {
-        var e = e || event;
-        var target = e.target || e.srcElement;
-        if(target.nodeName == "LI"){
-            search.value = target.innerHTML;
-            box.innerHTML = "";
-        }
-    }
-
-
-
-
-
-})//////

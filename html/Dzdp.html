@@ -126,15 +126,10 @@
                     <li>北京</li>
                     <li>v</li>
                 </ul>
-
                 <em class="iconfont icon-icon-" style="font-size: 35px; color: #d2d2d2"></em>
-                <input type="text" placeholder="搜索商户名，地址，菜名，外卖等" id="search"/>
-                <button id="searchBn">搜索</button>
-                <ul id="searchUl">
-
-                </ul>
-
-
+                <input type="text" placeholder="搜索商户名，地址，菜名，外卖等" id="Osearch"/>
+                <button id="btn">搜索</button>
+                <div id="searchDIV"></div>
                 <ul id="inpbott">
                     <li>大家都在搜:</li>
                     <li>三里屯</li>
@@ -172,7 +167,7 @@
         </div>
     </div>
     <div class="clear"></div>
-<!----------------轮播图--------------------------->
+    <!----------------轮播图----------->
     <div class="slideshow_wrap">
         <div class="slideshow">
             <div id="menu">
@@ -258,7 +253,7 @@
                 <h4>登录大众点评，发现品质生活</h4>
                 <div id="login">
                     <a href="javascript:;">登录</a>
-                    <a href="javascript:''">注册</a>
+                    <a href="javascript:;">注册</a>
                 </div>
                 <div class="clear"></div>
                 <ul id="resnav">
@@ -286,28 +281,35 @@
                     <img src="../image/index.png" alt="">
                     <a href="javascript:;">申请入驻</a>
                     <div class="clear"></div>
-                    <!--<ul id="lunbo">-->
-                        <!--<li>-->
-                            <!--<img src="../image/1.jpg" alt="">-->
-                            <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<img src="../image/2.png" alt="">-->
-                            <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<img src="../image/3.png" alt="">-->
-                            <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<img src="../image/4.png" alt="">-->
-                            <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
-                        <!--</li>-->
-                        <!--<li>-->
-                            <!--<img src="../image/5.png" alt="">-->
-                            <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+
+                    <!--<div id="lubbo_box">-->
+                        <!--<ul id="lunbo">-->
+                            <!--<li>-->
+                                <!--<img src="../image/1.jpg" alt="">-->
+                                <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="../image/2.png" alt="">-->
+                                <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="../image/3.png" alt="">-->
+                                <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="../image/4.png" alt="">-->
+                                <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="../image/5.png" alt="">-->
+                                <!--<h2>大众点评，骑着绿公鸡的大米</h2>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
+
+
+
                 </div>
             </div>
         </div>
@@ -532,12 +534,87 @@
             </div>
         </footer>
     </div>
-    <h1>----------------------------------------</h1>
-    <h1>----------------------------------------</h1>
-    <h1>----------------------------------------</h1>
-    <h1>----------------------------------------</h1>
+    <!-------------右侧固定图片----------------->
+    <div id="guohui">
+        <a href="https://www.taobao.com/"><img src="../image/guohui.png" alt=""></a>
+    </div>
+    <!------------左侧导航---------------->
+    <div id="leftNav">
+        <ul>
+            <li id="leftNav1">吃喝玩乐</li>
+            <li id="leftNav2">结婚</li>
+            <li id="leftNav3">丽人亲子</li>
+            <li id="leftNav4">家装</li>
+            <li id="leftNav5">学习培训</li>
+            <li id="leftNav6">生活服务</li>
+            <li id="leftNav7">旅游景点</li>
+            <li id="leftNav8">旅游酒店</li>
+            <li id="backToTop">顶部  <i>&nbsp;▲</i></li>
+        </ul>
+    </div>
 </body>
 </html>
 <script src="../js/jquery-1.11.1.js"></script>
 <script src="../js/dzdp.js"></script>
 <script src="../js/getAjax.js"></script>
+<script src="../js/public.js"></script>
+<script>
+    var Osearch = document.getElementById("Osearch");
+    var searchDIV = document.getElementById("searchDIV");
+    var ul;
+    Osearch.addEventListener("input",inputHandler);
+    var Oscript;
+    var str;
+    var btn = document.getElementById("btn");
+    function inputHandler (){
+
+        if(Oscript){
+            Oscript.remove();
+            Oscript = null;
+            searchDIV.style.display = "block";
+        }else {
+            searchDIV.style.display = "none";
+        }
+        Oscript = document.createElement("script");
+        Oscript.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+this.value+"&json=1&p=3&sid=22084_1436_13548_21120_22036_22073&req=2&csor=0&cb=callback";
+        document.body.appendChild(Oscript);
+
+    }
+    function callback(data) {
+        if(ul){
+            ul.remove();
+            ul = null;
+        }
+        ul = document.createElement("ul");
+        for(var i = 0; i< data.s.length; i++){
+            var li = document.createElement("li");
+            var Ospan = document.createElement("span");
+            Ospan.innerHTML = "约"+ rand(1,100)+"个结果";
+            Ospan.style.float= "right";
+            Ospan.style.color = "#515151";
+            Ospan.style.fontSize = "11px";
+            Ospan.style.marginRight = "5px"
+            li.innerHTML = data.s[i] ;
+            li.style.color = "#515151";
+            li.style.height = "28px";
+            li.style.lineHeight = "28px"
+            ul.appendChild(li);
+            li.appendChild(Ospan);
+            console.log(li)
+            li.onmousemove = function(){
+                this.style.background = "gainsboro";
+            };
+            li.onmouseout = function(){
+                this.style.background = "";
+            };
+            li.onclick = function(){
+                Osearch.value = this.innerHTML;
+                ul.style.display = "none";
+                searchDIV.style.display = "none"
+            }
+
+        }
+        searchDIV.appendChild(ul)
+    }
+
+</script>
