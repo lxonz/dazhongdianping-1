@@ -5,7 +5,7 @@ $(function () {
     //导航栏//
 var navlist = $("nav>ul>li");
 // console.log(navlist)
-for(var i=0;i<navlist.length;i++){
+for(var i = 0;i < navlist.length;i++){
     $(navlist[i]).mouseenter(function(){
         //console.log($(this).find("i"));
         $(this).css("color","#ff6334");
@@ -47,12 +47,12 @@ for(var i=0;i<navlist.length;i++){
         $(this).children(".htNav").css("display","none");
     })
 
-    ////////////////二维码显示隐藏
+    //二维码显示隐藏
     $("#off").click(function () {
         $("#phdp").remove();
     })
 }
-////////////////////////////////轮播图
+    //轮播图
     var imgArr = ["../images/001.jpg","../images/002.jpg","../images/003.jpg","../images/004.jpg","../images/005.jpg","../images/001.jpg"]
     var wrap = document.getElementById("wrap");
     var imgCon = document.getElementById("imgCon");
@@ -121,6 +121,7 @@ for(var i=0;i<navlist.length;i++){
             obj.style[attr] = cur + speed + "px";
         }, 30)
     }
+    //
     function autoPlay() {
         index ++ ;
         if(index == 6){

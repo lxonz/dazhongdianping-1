@@ -586,21 +586,25 @@
             ul = null;
         }
         ul = document.createElement("ul");
-        for(var i = 0; i< data.s.length; i++){
+        for(let i = 0; i< data.s.length; i++){
             var li = document.createElement("li");
             var Ospan = document.createElement("span");
+            var Aspan = document.createElement("span");
+            Aspan.innerHTML = data.s[i];
+            Aspan.style.float = "left";
+
             Ospan.innerHTML = "约"+ rand(1,100)+"个结果";
             Ospan.style.float= "right";
             Ospan.style.color = "#515151";
             Ospan.style.fontSize = "11px";
             Ospan.style.marginRight = "5px"
-            li.innerHTML = data.s[i] ;
+            // li.innerHTML = data.s[i] ;
             li.style.color = "#515151";
             li.style.height = "28px";
             li.style.lineHeight = "28px"
             ul.appendChild(li);
             li.appendChild(Ospan);
-            console.log(li)
+            li.appendChild(Aspan);
             li.onmousemove = function(){
                 this.style.background = "gainsboro";
             };
@@ -608,7 +612,8 @@
                 this.style.background = "";
             };
             li.onclick = function(){
-                Osearch.value = this.innerHTML;
+                Osearch.value = $(this).children("span").eq(1).html();
+                // this.children.remove;
                 ul.style.display = "none";
                 searchDIV.style.display = "none"
             }
